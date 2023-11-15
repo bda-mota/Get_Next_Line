@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:56 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/15 15:20:15 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:24:23 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,25 @@
 #  define BUFFER_SIZE 2
 # endif
 
+
 typedef struct s_gnl
 {
 	char			c;
 	struct s_gnl	*next;
 }	t_gnl;
 
+typedef struct s_find
+{
+	char	buffer[BUFFER_SIZE];
+	int		max;
+	int		len;
+	int		cursor;
+	t_gnl	*root;
+}	t_find;
+
 char	*get_next_line(int fd);
-char	*transform(t_gnl *root);
-void	insert_end(t_gnl **root, char c);
+char	*ft_transform(t_gnl *root, int len);
+char	*ft_strchr(const char *s, int c);
+void	ft_insert_end(t_gnl **root, char c);
 
 #endif
