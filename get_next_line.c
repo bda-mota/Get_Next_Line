@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:59 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/17 17:33:49 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:48:06 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ char	*get_next_line(int fd)
 	{
 		i = -1;
 		bytes = read(fd, search.buffer, BUFFER_SIZE);
-		while (++i < BUFFER_SIZE)
+		search.buffer[bytes] = '\0';
+		if (bytes <= 0)
+			return (NULL);
+		while (++i < BUFFER_SIZE && search.buffer[i] != '\0')
 			ft_insert_end(&search.root, search.buffer[i]);
 		search.max += BUFFER_SIZE;
 	}
