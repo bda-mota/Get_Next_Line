@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:09:01 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/15 18:24:53 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:46:37 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,6 @@ void	ft_insert_end(t_gnl **root, char c)
 	curr->next = new_node;
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	char	*memory;
-	size_t	total_size;
-
-	total_size = nmemb * size;
-	if (total_size != 0 && total_size / nmemb != size)
-		return (NULL);
-	memory = malloc(total_size);
-	if (memory != NULL)
-		ft_bzero(memory, total_size);
-	return (memory);
-}
-
 char	*ft_transform(t_gnl *root, int len)
 {
 	t_gnl	*curr;
@@ -56,30 +42,32 @@ char	*ft_transform(t_gnl *root, int len)
 
 	curr = root;
 	i = 0;
-	str = ft_calloc(len + 1, sizeof(char));
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	while (curr)
+	while (len != 0)
 	{
 		str[i] = curr->c;
 		temp = curr;
 		curr = curr->next;
 		free (temp);
 		i++;
+		len--;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lstchr(t_gnl *root, int c)
 {
-	const char	*str;
-	int			i;
+	t_gnl	*curr;
 
-	str = s;
-	i = 0;
-	while (str[i] && str[i] != (unsigned char)c)
-		i++;
-	if (str[i] == (unsigned char)c)
-		return ((char *)(str + i));
-	return (NULL);
+	curr = root;
+	if (curr == NULL)
+		return (0);
+	while (curr->c != (unsigned char)c)
+		curr = curr->next;
+	if (curr->c == (unsigned char)c)
+		return (1);
+	return (0);
 }
