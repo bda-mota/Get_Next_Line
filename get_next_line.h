@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:56 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/17 17:05:14 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:25:01 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_find
 	int		max;
 	int		len;
 	int		cursor;
+	int		time;
 	t_gnl	*root;
 }	t_find;
 

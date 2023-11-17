@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:09:01 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/17 17:19:46 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:34:43 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ int	ft_lstchr(t_gnl *root, char c)
 	curr = root;
 	if (curr == NULL)
 		return (0);
-	while (curr && curr->c != c)
+	while (curr->next != NULL && curr->c != c)
 		curr = curr->next;
-	if (curr && curr->c == c)
+	if (curr->next != NULL && curr->c == c)
 		return (1);
 	return (0);
 }
