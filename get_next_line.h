@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:56 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/17 16:22:54 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:05:14 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_find
 
 char	*get_next_line(int fd);
 char	*ft_transform(t_gnl *root, int len);
-int		ft_lstchr(t_gnl *root, int c);
+int		ft_lstchr(t_gnl *root, char c);
 void	ft_insert_end(t_gnl **root, char c);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
