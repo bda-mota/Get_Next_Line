@@ -65,9 +65,11 @@ int	ft_lstchr(t_gnl *root, char c)
 	curr = root;
 	if (curr == NULL)
 		return (0);
-	while ((curr && curr->c != c) || curr->next != NULL)
+	while (curr)
+	{
+		if (curr->c == c)
+			return (1);
 		curr = curr->next;
-	if (curr && curr->c == c)
-		return (1);
+	}
 	return (0);
 }
