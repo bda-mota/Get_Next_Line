@@ -33,7 +33,7 @@ char	*get_next_line(int fd)
 			return (NULL);
 		while (++i < BUFFER_SIZE && search.buffer[i] != '\0')
 			ft_insert_end(&search.root, search.buffer[i]);
-		search.max += BUFFER_SIZE;
+		//search.max += BUFFER_SIZE;
 	}
 	curr = search.root;
 	while (curr && curr->c != '\n')
@@ -41,7 +41,6 @@ char	*get_next_line(int fd)
 		search.len++;
 		curr = curr->next;
 	}
-	search.cursor = search.max - search.len;
 	line = ft_transform(search.root, search.len);
 	return (line);
 }

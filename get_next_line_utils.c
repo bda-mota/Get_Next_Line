@@ -28,31 +28,30 @@ void	ft_insert_end(t_gnl **root, char c)
 		return ;
 	}
 	curr = *root;
-	while (curr->next != NULL)
+	while (curr != NULL && curr->next != NULL)
 		curr = curr->next;
 	curr->next = new_node;
 }
 
 char	*ft_transform(t_gnl *root, int len)
 {
-	t_gnl	*curr;
 	t_gnl	*temp;
 	char	*str;
 	int		i;
 
-	curr = root;
 	i = 0;
+	if (root == NULL || len <= 0)
+        return (NULL);
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	while (len != 0)
+	while (root != NULL && i < len)
 	{
-		str[i] = curr->c;
-		temp = curr;
-		curr = curr->next;
-		free (temp);
+		str[i] = root->c;
+		temp = root;
+		root = root->next;
+		free(temp);
 		i++;
-		len--;
 	}
 	str[i] = '\0';
 	return (str);
@@ -62,10 +61,10 @@ int	ft_lstchr(t_gnl *root, char c)
 {
 	t_gnl	*curr;
 
-	curr = root;
-	if (curr == NULL)
+	if (root == NULL)
 		return (0);
-	while (curr)
+	curr = root;
+	while (curr != NULL)
 	{
 		if (curr->c == c)
 			return (1);
