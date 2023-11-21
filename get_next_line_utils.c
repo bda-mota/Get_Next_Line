@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:09:01 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/17 17:51:22 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:21:09 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ char	*ft_transform(t_gnl *root, int len)
 
 	i = 0;
 	if (root == NULL || len <= 0)
-        return (NULL);
+		return (NULL);
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	while (root != NULL && i <= len)
+	while (root != NULL)
 	{
 		str[i] = root->c;
 		temp = root;
@@ -64,7 +64,7 @@ int	ft_lstchr(t_gnl *root)
 {
 	if (!root)
 		return (0);
-	while(root)
+	while (root)
 	{
 		if (root->c == '\n' || root->c == '\0')
 			return (1);
