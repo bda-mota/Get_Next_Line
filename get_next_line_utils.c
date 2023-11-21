@@ -60,18 +60,15 @@ char	*ft_transform(t_gnl *root, int len)
 	return (str);
 }
 
-int	ft_lstchr(t_gnl **root)
+int	ft_lstchr(t_gnl *root)
 {
-	t_gnl	*curr;
-
-	curr = *root;
-	if (!*root)
+	if (!root)
 		return (0);
-	while(curr)
+	while(root)
 	{
-		if (curr->c == '\n' || curr->c == '\0')
+		if (root->c == '\n' || root->c == '\0')
 			return (1);
-		curr = curr->next;
+		root = root->next;
 	}
 	return (0);
 }

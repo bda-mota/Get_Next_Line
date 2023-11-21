@@ -19,7 +19,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 25
+#  define BUFFER_SIZE 10
 # endif
 
 typedef struct s_gnl
@@ -34,17 +34,13 @@ typedef struct s_find
 	int		max;
 	int		len;
 	int		cursor;
-	int		time;
 	t_gnl	*root;
 }	t_find;
 
-int		ft_lstchr(t_gnl **root);
+int		ft_lstchr(t_gnl *root);
 char	*get_next_line(int fd);
 char	*ft_transform(t_gnl *root, int len);
 void	ft_insert_end(t_gnl **root, char c);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_position(t_find search);
+
 
 #endif
