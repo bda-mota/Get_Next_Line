@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:09:01 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/21 14:28:44 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:57:19 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,24 @@ int	ft_lstchr(t_gnl *root)
 		root = root->next;
 	}
 	return (0);
+}
+
+void	ft_dealloc(t_gnl **root)
+{
+	t_gnl	*temp;
+
+	if (!root)
+		return ;
+	while (root)
+	{
+		temp = (*root);
+		root = (*root)->next;
+		free(temp);
+	}
+	*root = NULL;
+}
+
+void	ft_verify_read()
+{
+
 }
