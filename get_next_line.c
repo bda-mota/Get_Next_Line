@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:59 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/21 19:53:54 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:19:03 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,19 @@ int	ft_build_line(t_find *file, t_gnl **root, int bytes)
 	return (len);
 }
 
+int	ft_verify_read(int bytes, t_gnl **root)
+{
+	if (bytes < 0)
+	{
+		if (*root != NULL)
+			ft_dealloc(root);
+		return (1);
+	}
+	else if (bytes == 0)
+		return (0);
+	return (2);
+}
+
 char	*get_next_line(int fd)
 {
 	static t_find	file;
@@ -54,16 +67,17 @@ char	*get_next_line(int fd)
 			continue ;
 		}
 		file.bytes = read(fd, file.buffer, BUFFER_SIZE);
-		if (file.bytes < 0)
-		file.buffer[file.bytes] = '\0';
-		if (file.bytes == 0)
+		if (ft_verify_read(file.bytes, &root) == 0)
 			break ;
+		else if (ft_verify_read(file.bytes, &root) == 1)
+			return (NULL);
+		file.buffer[file.bytes] = '\0';
 		len += ft_build_line(&file, &root, file.bytes);
 	}
 	line = ft_transform(root, len);
 	return (line);
 }
-
+/*
 int	main(void)
 {
 	int		fd;
@@ -80,4 +94,4 @@ int	main(void)
 	}
 	close (fd);
 	return (0);
-}
+} */

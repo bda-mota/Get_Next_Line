@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:56 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/21 19:39:27 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:04:27 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ char	*get_next_line(int fd);
 char	*ft_transform(t_gnl *root, int len);
 void	ft_insert_end(t_gnl **root, char c);
 int		ft_build_line(t_find *file, t_gnl **root, int bytes);
+void	ft_dealloc(t_gnl **root);
 
 #endif
