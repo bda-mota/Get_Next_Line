@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:56 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/21 13:49:51 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:02:33 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 25
+#  define BUFFER_SIZE 10
 # endif
 
 typedef struct s_gnl
@@ -39,6 +39,5 @@ int		ft_lstchr(t_gnl *root);
 char	*get_next_line(int fd);
 char	*ft_transform(t_gnl *root, int len);
 void	ft_insert_end(t_gnl **root, char c);
-
 
 #endif
