@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:56 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/22 13:55:39 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:31:29 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100000
+#  define BUFFER_SIZE 1024
 # endif
 
 typedef struct s_gnl
@@ -35,11 +33,12 @@ typedef struct s_find
 	int		bytes;
 }	t_find;
 
-int		ft_lstchr(t_gnl *root);
 char	*get_next_line(int fd);
 char	*ft_transform(t_gnl *root, int len);
 void	ft_insert_end(t_gnl **root, char c);
 int		ft_build_line(t_find *file, t_gnl **root, int bytes);
+int		ft_read_file(int fd, t_find *file, t_gnl **root);
+int		ft_lstchr(t_gnl *root);
 void	ft_dealloc(t_gnl **root);
 
 #endif

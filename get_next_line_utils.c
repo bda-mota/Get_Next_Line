@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:09:01 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/21 20:01:11 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:43:26 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,27 @@ void	ft_dealloc(t_gnl **root)
 		free(temp);
 	}
 	*root = NULL;
+}
+
+int	ft_build_line(t_find *file, t_gnl **root, int bytes)
+{
+	int	len;
+
+	len = 0;
+	while (file->pos < bytes)
+	{
+		if (file->buffer[file->pos] == '\n' || file->buffer[file->pos] == '\0')
+		{
+			ft_insert_end(root, file->buffer[file->pos]);
+			len++;
+			file->pos++;
+			break ;
+		}
+		ft_insert_end(root, file->buffer[file->pos]);
+		len++;
+		file->pos++;
+	}
+	if (file->pos == bytes)
+	file->pos = 0;
+	return (len);
 }

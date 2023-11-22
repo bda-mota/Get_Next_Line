@@ -6,41 +6,32 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:59 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/22 14:34:07 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:28:20 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_build_line(t_find *file, t_gnl **root, int bytes)
+int	ft_read_file(int fd, t_find *file, t_gnl **root)
 {
-	int	len;
-
-	len = 0;
-	while (file->pos < bytes)
+	file->bytes = read(fd, file->buffer, BUFFER_SIZE);
+	if (file->bytes < 0)
 	{
-		if (file->buffer[file->pos] == '\n' || file->buffer[file->pos] == '\0')
-		{
-			ft_insert_end(root, file->buffer[file->pos]);
-			len++;
-			file->pos++;
-			break ;
-		}
-		ft_insert_end(root, file->buffer[file->pos]);
-		len++;
-		file->pos++;
+		ft_dealloc(root);
+		return (0);
 	}
-	if (file->pos == BUFFER_SIZE)
-	file->pos = 0;
-	return (len);
+	if (file->bytes == 0)
+		return (1);
+	file->buffer[file->bytes] = '\0';
+	return (2);
 }
 
 char	*get_next_line(int fd)
 {
 	static t_find	file;
 	t_gnl			*root;
-	char			*line;
 	int				len;
+	int				verify;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -53,44 +44,12 @@ char	*get_next_line(int fd)
 			len += ft_build_line(&file, &root, file.bytes);
 			continue ;
 		}
-		file.bytes = read(fd, file.buffer, BUFFER_SIZE);
-		if (file.bytes < 0)
-		{
-			ft_dealloc(&root);
+		verify = ft_read_file(fd, &file, &root);
+		if (verify == 0)
 			return (NULL);
-		}
-		if (file.bytes == 0)
+		if (verify == 1)
 			break ;
-		file.buffer[file.bytes] = '\0';
 		len += ft_build_line(&file, &root, file.bytes);
 	}
-	line = ft_transform(root, len);
-	return (line);
-}
-int	main(void)
-{
-	int		fd, fd1;
-	char	*str, *str1;
-	// char    *test;
-
-	fd = open("teste.txt", O_RDONLY);
-	while ((str = get_next_line(fd)))
-	{
-		if (str == NULL)
-			break ;
-		printf("%s", str);
-		free(str);
-	}
-	close(fd);
-	printf("\n");
-	fd1 = open("teste copy.txt", O_RDONLY);
-	while ((str1 = get_next_line(fd1)))
-	{
-		if (str == NULL)
-			break ;
-		printf("%s", str1);
-		free(str1);
-	}
-	close(fd1);
-	return (0);
+	return (ft_transform(root, len));
 }
