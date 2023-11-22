@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:08:56 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/21 20:04:27 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:55:39 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 100000
 # endif
 
 typedef struct s_gnl
@@ -31,7 +31,6 @@ typedef struct s_gnl
 typedef struct s_find
 {
 	char	buffer[BUFFER_SIZE];
-	int		max;
 	int		pos;
 	int		bytes;
 }	t_find;
