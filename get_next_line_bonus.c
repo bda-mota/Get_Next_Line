@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:14:21 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/22 18:49:17 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:09:00 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	ft_read_file(int fd, t_find *file, t_gnl **root)
 
 char	*get_next_line(int fd)
 {
-	static t_find	f[1024];
+	static t_find	f[1026];
 	t_gnl			*root;
 	int				len;
 	int				verify;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 1026)
 		return (NULL);
 	root = NULL;
 	len = 0;
