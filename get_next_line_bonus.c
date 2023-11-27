@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:14:21 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/22 19:09:00 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:09:08 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*get_next_line(int fd)
 	int				len;
 	int				verify;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 1026)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1026)
 		return (NULL);
 	root = NULL;
 	len = 0;
