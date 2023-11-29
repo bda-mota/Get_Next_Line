@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:14:21 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/27 14:09:08 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:07:46 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,26 @@ int	ft_read_file(int fd, t_find *file, t_gnl **root)
 char	*get_next_line(int fd)
 {
 	static t_find	f[1026];
-	t_gnl			*root;
 	int				len;
 	int				verify;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1026)
 		return (NULL);
-	root = NULL;
+	f[fd].str = NULL;
 	len = 0;
-	while (ft_lstchr(root) == 0)
+	while (ft_lstchr(f[fd].str) == 0)
 	{
 		if (f[fd].pos > 0 && f[fd].pos != f[fd].bytes && f[fd].bytes != 0)
 		{
-			len += ft_build_line(&f[fd], &root, f[fd].bytes);
+			len += ft_build_line(&f[fd], &f[fd].str, f[fd].bytes);
 			continue ;
 		}
-		verify = ft_read_file(fd, &f[fd], &root);
+		verify = ft_read_file(fd, &f[fd], &f[fd].str);
 		if (verify == 0)
 			return (NULL);
 		if (verify == 1)
 			break ;
-		len += ft_build_line(&f[fd], &root, f[fd].bytes);
+		len += ft_build_line(&f[fd], &f[fd].str, f[fd].bytes);
 	}
-	return (ft_transform(root, len));
+	return (ft_transform(f[fd].str, len));
 }

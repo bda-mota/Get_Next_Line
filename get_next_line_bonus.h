@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:14:23 by bda-mota          #+#    #+#             */
-/*   Updated: 2023/11/27 14:11:14 by bda-mota         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:32:37 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_find
 	char	buffer[BUFFER_SIZE];
 	int		pos;
 	int		bytes;
+	t_gnl	*str;
 }	t_find;
 
 char	*get_next_line(int fd);
