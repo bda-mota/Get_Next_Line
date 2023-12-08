@@ -31,7 +31,8 @@ int    main(void)
     return (0);
 }
 ```
-
+- **Obs:** you need to create the file 'test.txt' containing what you want get_next_line to read.
+  
 ## Compilation
 After adding the main() to the .c file and saving, type the following command in the terminal:
 
