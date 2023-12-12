@@ -11,10 +11,10 @@ Line Reading: The developed function is capable of reading a line from the file 
 Leitura de Linha: A função desenvolvida é capaz de ler uma linha do arquivo associado ao parâmetro fornecido do descritor de arquivo.
 
 ## Learned Concepts / Conceitos aprendidos 
-During the development of this project, I gained essential programming knowledge, including:
-Static Variable: I employed concepts of static variables to preserve state between successive calls to the function.
-Memory Management: I learned to handle and address memory leaks, ensuring efficient execution without resource wastage.
-Linked List: I developed the function using a linked list structure, demonstrating the practical application of this data structure.
+During the development of this project, I gained essential programming knowledge, including: \n
+Static Variable: I employed concepts of static variables to preserve state between successive calls to the function. \n
+Memory Management: I learned to handle and address memory leaks, ensuring efficient execution without resource wastage. \n
+Linked List: I developed the function using a linked list structure, demonstrating the practical application of this data structure. \n
 
 Durante o desenvolvimento deste projeto, adquiri conhecimentos essenciais de programação, incluindo:
 Variável Estática: Utilizei conceitos de variáveis estáticas para preservar o estado entre chamadas sucessivas à função.
