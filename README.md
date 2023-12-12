@@ -11,15 +11,15 @@ Line Reading: The developed function is capable of reading a line from the file 
 Leitura de Linha: A função desenvolvida é capaz de ler uma linha do arquivo associado ao parâmetro fornecido do descritor de arquivo.
 
 ## Learned Concepts / Conceitos aprendidos 
-During the development of this project, I gained essential programming knowledge, including: \n
-Static Variable: I employed concepts of static variables to preserve state between successive calls to the function. \n
-Memory Management: I learned to handle and address memory leaks, ensuring efficient execution without resource wastage. \n
-Linked List: I developed the function using a linked list structure, demonstrating the practical application of this data structure. \n
+During the development of this project, I gained essential programming knowledge, including: <br>
+- Static Variable: I employed concepts of static variables to preserve state between successive calls to the function. <br>
+- Memory Management: I learned to handle and address memory leaks, ensuring efficient execution without resource wastage. <br>
+- Linked List: I developed the function using a linked list structure, demonstrating the practical application of this data structure. <br>
 
-Durante o desenvolvimento deste projeto, adquiri conhecimentos essenciais de programação, incluindo:
-Variável Estática: Utilizei conceitos de variáveis estáticas para preservar o estado entre chamadas sucessivas à função.
-Gerenciamento de Memória: Aprendi a lidar e corrigir vazamentos de memória, garantindo uma execução eficiente sem desperdício de recursos.
-Lista Encadeada: Desenvolvi a função utilizando uma estrutura de lista encadeada, demonstrando a aplicação prática dessa estrutura de dados.
+Durante o desenvolvimento deste projeto, adquiri conhecimentos essenciais de programação, incluindo: <br>
+- Variável Estática: Utilizei conceitos de variáveis estáticas para preservar o estado entre chamadas sucessivas à função. <br>
+- Gerenciamento de Memória: Aprendi a lidar e corrigir vazamentos de memória, garantindo uma execução eficiente sem desperdício de recursos. <br>
+- Lista Encadeada: Desenvolvi a função utilizando uma estrutura de lista encadeada, demonstrando a aplicação prática dessa estrutura de dados. <br>
 
 ## Main
 To test, add the following code to the get_next_line.c file:
