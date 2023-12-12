@@ -8,7 +8,7 @@ Este projeto envolve programar uma função em C que retorna uma linha lida de u
 ## Key Features / Principais Características
 Line Reading: The developed function is capable of reading a line from the file associated with the provided file descriptor parameter.
 
-Leitura de Linha - A função desenvolvida é capaz de ler uma linha do arquivo associado ao parâmetro fornecido do descritor de arquivo.
+Leitura de Linha: A função desenvolvida é capaz de ler uma linha do arquivo associado ao parâmetro fornecido do descritor de arquivo.
 
 ## Learned Concepts / Conceitos aprendidos 
 During the development of this project, I gained essential programming knowledge, including:
